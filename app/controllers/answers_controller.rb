@@ -1,5 +1,6 @@
 class AnswersController < ApplicationController
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :except => [:index, :show]
 
   # GET /answers
   # GET /answers.json
@@ -25,6 +26,7 @@ class AnswersController < ApplicationController
   # POST /answers.json
   def create
     @answer = Answer.new(answer_params)
+    @answer.score = 0
 
     respond_to do |format|
       if @answer.save
@@ -69,6 +71,6 @@ class AnswersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def answer_params
-      params.require(:answer).permit(:body, :score)
+      params.require(:answer).permit(:body)
     end
 end
