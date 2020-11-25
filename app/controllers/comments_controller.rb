@@ -28,10 +28,11 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.new comment_params
     @comment.user = current_user
     # @comment.commentable_id = params.question_id
+    session[:return_to] ||= request.referer
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @commentable, notice: 'Comment was successfully created.' }
+        format.html { redirect_to session.delete(:return_to), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }

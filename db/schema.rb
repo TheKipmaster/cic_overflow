@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_013157) do
+ActiveRecord::Schema.define(version: 2020_11_25_025827) do
 
   create_table "answers", force: :cascade do |t|
     t.text "body"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2020_11_25_013157) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id", null: false
+    t.integer "question_id", null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
@@ -55,6 +57,7 @@ ActiveRecord::Schema.define(version: 2020_11_25_013157) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
   add_foreign_key "comments", "users"
   add_foreign_key "questions", "users"

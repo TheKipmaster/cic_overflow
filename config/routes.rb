@@ -2,9 +2,11 @@ Rails.application.routes.draw do
 
   resources :questions do
     resources :comments, module: :questions
-    resources :answers do
-      resources :comments, module: :answers
-    end
+    resources :answers
+  end
+
+  resources :answers do
+    resources :comments, module: :answers
   end
 
   devise_for :users

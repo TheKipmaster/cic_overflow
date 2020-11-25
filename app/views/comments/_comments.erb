@@ -1,4 +1,4 @@
-<h3>Comentários</h3>
+<h1>Comentários</h1>
 <% commentable.comments.each do |comment| %>
-  <div><%= comment.body %> | <%= comment.user_id %></div>
+  <div><%= comment.body %> | <%= comment.user.email %></div>
 <% end %>

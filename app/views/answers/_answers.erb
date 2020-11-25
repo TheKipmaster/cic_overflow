@@ -1,0 +1,12 @@
+<h1>Respostas</h1>
+<% question.answers.each do |answer| %>
+  <div><%= answer.body %> | <%= answer.user.email %></div>
+
+  <br>
+
+  <%= render 'comments/comments', commentable: answer %>
+
+  <br>
+
+  <%= render 'comments/form', commentable: answer %>
+<% end %>

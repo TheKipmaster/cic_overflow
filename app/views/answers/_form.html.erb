@@ -1,29 +1,10 @@
-<%= form_with(model: answer, local: true) do |form| %>
-  <% if answer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
-
-      <ul>
-        <% answer.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_for [question, Answer.new] do |f| %>
   <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= f.label :responder %>
+    <%= f.text_area :body %>
   </div>
-
-  <% if false %>
-  <div class="field">
-    <%= form.label :score %>
-    <%= form.number_field :score %>
-  </div>
-  <% end %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>
