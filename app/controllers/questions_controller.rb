@@ -11,6 +11,8 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
+    @question = Question.find(params[:id])
+    # @new_comment = @question.comments.build
   end
 
   # GET /questions/new

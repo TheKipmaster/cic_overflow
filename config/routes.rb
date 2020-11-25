@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  resources :comments
-  resources :answers
-  resources :questions
+
+  resources :questions do
+    resources :comments, module: :questions
+    resources :answers do
+      resources :comments, module: :answers
+    end
+  end
+
   devise_for :users
   get 'home/index'
   root 'questions#index'
