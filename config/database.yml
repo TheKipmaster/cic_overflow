@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: pmd_2020_prod
-  # username: pmd_2020
-  # password: <%= ENV['PDM_2020_DB_PWD'] %>
+  username: pmd_2020
+  password: <%= ENV['PDM_2020_DB_PWD'] %>
