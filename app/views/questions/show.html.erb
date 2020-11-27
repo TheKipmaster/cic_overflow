@@ -1,37 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @question.title %>
-</p>
+<%= render 'question-details', question: @question %>
 
-<p>
-  <strong>Body:</strong>
-  <%= @question.body %>
-</p>
-
-<p>
-  <strong>Score:</strong>
-  <%= @question.score %>
-</p>
-
-<p>
-  <strong>Answered:</strong>
-  <%= @question.answered %>
-</p>
-
+<%# comments on this question %>
 <%= render 'comments/comments', commentable: @question %>
 
 <br>
 
+<%# create new comment on this question %>
 <%= render 'comments/form', commentable: @question %>
 
 <br>
 
+<%# answers to this question %>
 <%= render 'answers/answers', question: @question %>
 
 <br>
 
+<%# create new answer to this question %>
 <%= render 'answers/form', question: @question %>
 
 <%= link_to 'Edit', edit_question_path(@question) %> |

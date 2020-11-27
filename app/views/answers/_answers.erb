@@ -4,9 +4,11 @@
 
   <br>
 
+  <%# comments on this answer %>
   <%= render 'comments/comments', commentable: answer %>
 
   <br>
 
+  <%# create new comment on this answer %>
   <%= render 'comments/form', commentable: answer %>
 <% end %>

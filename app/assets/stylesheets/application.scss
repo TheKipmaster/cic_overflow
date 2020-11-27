@@ -16,4 +16,17 @@
 @import "bootstrap";
 
 // Imports tree and builds app styles.
-@import "/\*"
+@import "/\*";
+
+$background-color: #222526;
+$main-font-color: #adaaa5;
+
+body {
+  background-color: $background-color;
+  color: $main-font-color;
+}
+
+textarea {
+  background-color: $background-color;
+  color: $main-font-color;
+}
