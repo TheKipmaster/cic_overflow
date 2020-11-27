@@ -18,15 +18,18 @@
 // Imports tree and builds app styles.
 @import "/\*";
 
-$background-color: #222526;
-$main-font-color: #adaaa5;
-
 body {
   background-color: $background-color;
-  color: $main-font-color;
+  color: $main-color;
 }
 
 textarea {
   background-color: $background-color;
-  color: $main-font-color;
+  color: $main-color;
+  resize: none;
+}
+
+input {
+  background-color: $background-color;
+  color: $main-color;
 }

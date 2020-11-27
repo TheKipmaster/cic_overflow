@@ -1,7 +1,6 @@
-<%= form_for [commentable, Comment.new] do |f| %>
+<%= form_for [commentable, Comment.new], html: { autocomplete: "off" } do |f| %>
   <div class="field">
-    <%= f.label :comentar %>
-    <%= f.text_area :body %>
+    <%= f.text_field :body, placeholder: "Comentar", class: "new-comment" %>
   </div>
 
   <div class="actions">

@@ -1,24 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<%= render 'question-details', question: @question %>
+<div class="pb-2 mt-4 mb-2 header">
+  <h1><%= @question.title %></h1>
+</div>
 
-<%# comments on this question %>
-<%= render 'comments/comments', commentable: @question %>
-
-<br>
-
-<%# create new comment on this question %>
-<%= render 'comments/form', commentable: @question %>
-
-<br>
+<div class="container-fluid no-gutters question">
+  <div class="row">
+    <div class="col-1 question-score">
+      <%= @question.score %>
+      <p>
+        <strong>Answered:</strong>
+        <%= @question.answered %>
+      </p>
+    </div>
+    <div class="col-7 question-body">
+      <%= simple_format(@question.body) %>
+    </div>
+    <div class="col-4 question-comments">
+      <%# comments on this question %>
+      <%= render 'comments/comments', commentable: @question %>
+    </div>
+  </div>
+</div>
 
 <%# answers to this question %>
 <%= render 'answers/answers', question: @question %>
-
-<br>
-
-<%# create new answer to this question %>
-<%= render 'answers/form', question: @question %>
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>

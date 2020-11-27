@@ -1,16 +1,15 @@
-<h1 class="pb-2 mt-4 mb-2 border-bottom"><%= question.title %></h1>
-
-<p>
-  <strong>Body:</strong>
-  <%= question.body %>
-</p>
-
-<p>
-  <strong>Score:</strong>
-  <%= question.score %>
-</p>
-
-<p>
-  <strong>Answered:</strong>
-  <%= question.answered %>
-</p>
+<div class="container-fluid no-gutters question">
+  <div class="row">
+    <div class="col-1 question-score">
+      <%= question.score %>
+      <p>
+        <strong>Answered:</strong>
+        <%= question.answered %>
+      </p>
+    </div>
+    <div class="col-6 question-body">
+      <%= simple_format(question.body) %>
+    </div>
+    <div class="col-5 question-comments"></div>
+  </div>
+</div>
