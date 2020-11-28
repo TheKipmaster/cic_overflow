@@ -6,12 +6,14 @@
 
 <div class="container-fluid no-gutters question">
   <div class="row">
-    <div class="col-1 question-score">
-      <%= @question.score %>
-      <p>
-        <strong>Answered:</strong>
-        <%= @question.answered %>
-      </p>
+    <div class="col-1">
+      <%= render 'layouts/score', score: @question.score %>
+        <% if @question.answered %>
+          <p>
+            <strong>Answered:</strong>
+            <%= @question.answered %>
+          </p>
+        <% end %>
     </div>
     <div class="col-7 question-body">
       <%= simple_format(@question.body) %>

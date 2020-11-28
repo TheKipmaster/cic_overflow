@@ -72,6 +72,9 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
+    bootstrap-glyphicons (0.0.1)
+      railties (>= 3.0)
+      sass (>= 3.2)
     builder (3.2.4)
     byebug (11.1.3)
     capybara (3.33.0)
@@ -175,6 +178,11 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rubyzip (2.3.0)
+    sass (3.7.4)
+      sass-listen (~> 4.0.0)
+    sass-listen (4.0.0)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -236,6 +244,7 @@ DEPENDENCIES
   better_errors
   bootsnap (>= 1.4.2)
   bootstrap (~> 5.0.0.alpha3)
+  bootstrap-glyphicons
   byebug
   capybara (>= 2.15)
   devise

@@ -18,6 +18,8 @@ gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
 # Use bootsrap for pre-made styles
 gem 'bootstrap', '~> 5.0.0.alpha3'
+# Pretty icons
+gem 'bootstrap-glyphicons'
 # JQuery for rails
 gem 'jquery-rails'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker

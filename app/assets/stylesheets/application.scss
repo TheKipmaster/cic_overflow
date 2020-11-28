@@ -18,6 +18,8 @@
 // Imports tree and builds app styles.
 @import "/\*";
 
+@import 'bootstrap/glyphicons';
+
 body {
   background-color: $background-color;
   color: $main-color;
@@ -33,3 +35,40 @@ input {
   background-color: $background-color;
   color: $main-color;
 }
+
+.score {
+  text-align: center;
+  font-size: 3em;
+  line-height: 1em;
+
+  .number {
+    margin: 15px 0;
+  }
+
+  button {
+    background-color: $background-color;
+    color: $main-color;
+    border: none;
+  }
+
+  .row {
+    color: $main-color;
+    height: 1em;
+  }
+}
+
+// .upvote, .downvote {
+//   background-color: white;
+//   width: 50px;
+//   height: 50px;
+//   text-align: center;
+// }
+
+.downvote {
+  transform: rotateX(180deg)
+}
+
+// .glyphicon.glyphicon-arrow-up,
+// .glyphicon.glyphicon-arrow-down {
+//   font-size: 50px;
+// }
