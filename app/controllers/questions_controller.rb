@@ -5,7 +5,10 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+    # @questions = Question.all
+    # @latest = @questions.reverse
+    @highest = Question.order(:cached_votes_score).reverse
+    # @open
   end
 
   # GET /questions/1

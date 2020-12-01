@@ -1,6 +1,6 @@
 <h4 class="divide"><%= question.answers.length %> Resposta(s)</h4>
 
-<% question.answers.each do |answer| %>
+<% question.answers.order(:cached_votes_score).reverse.each do |answer| %>
   <div class="container-fluid no-gutters answer">
     <div class="row">
       <div class="col-1 answer-score">
