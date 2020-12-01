@@ -8,6 +8,8 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 # A flexible authentication solution for Rails
 gem 'devise'
 gem 'devise-i18n'
+# Gem for up-and-down voting models
+gem 'acts_as_votable'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3', '~> 1.4'
 # PostgreSQL database for heroku

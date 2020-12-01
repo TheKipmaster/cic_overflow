@@ -47,8 +47,16 @@ input {
 
   button {
     background-color: $background-color;
-    color: $main-color;
     border: none;
+    color: $main-color;
+
+    &.upvoted {
+      color: #ff581a;
+    }
+
+    &.downvoted {
+      color: #69adff;
+    }
   }
 
   .row {

@@ -1,17 +1,18 @@
 <div class="container score">
   <div class="row upvote">
-    <button>
+    <%# , { class: ((current_user.voted_as_when_voted_for votable) ? 'upvoted' : 'unupvoted') } %>
+    <%= button_to [:upvote, votable], { class: ((current_user.voted_up_on? votable) ? 'upvoted' : '') } do %>
       <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
-    </button>
+    <% end %>
   </div>
   <div class="row number">
     <span>
-      <%= score %>
+      <%= votable.get_likes.size - votable.get_dislikes.size %>
     </span>
   </div>
   <div class="row downvote">
-    <button>
+    <%= button_to [:downvote, votable], { class: ((current_user.voted_down_on? votable) ? 'downvoted' : '') } do %>
       <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
-    </button>
+    <% end %>
   </div>
 </div>

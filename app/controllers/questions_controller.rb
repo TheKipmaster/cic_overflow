@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_question, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, :except => [:index, :show]
 
   # GET /questions
@@ -11,8 +11,24 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
-    @question = Question.find(params[:id])
-    # @new_comment = @question.comments.build
+  end
+
+  def upvote
+    if current_user.voted_as_when_voted_for @question # if user has liked this question, unlike it
+      @question.unliked_by current_user
+    else
+      @question.liked_by current_user # otherwise, like it
+    end
+    redirect_to @question
+  end
+
+  def downvote
+    unless (current_user.voted_as_when_voted_for @question) === false # if user has disliked it, undislike it
+      @question.disliked_by current_user
+    else # if user has not liked nor disliked, dislike it
+      @question.undisliked_by current_user
+    end
+    redirect_to @question
   end
 
   # GET /questions/new
