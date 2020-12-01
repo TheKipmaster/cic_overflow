@@ -1,8 +1,13 @@
 <div class="container score">
   <div class="row upvote">
-    <%# , { class: ((current_user.voted_as_when_voted_for votable) ? 'upvoted' : 'unupvoted') } %>
-    <%= button_to [:upvote, votable], { class: ((current_user.voted_up_on? votable) ? 'upvoted' : '') } do %>
-      <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+    <% if current_user === nil %>
+      <button disabled=true>
+        <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+      </button>
+    <% else %>
+      <%= button_to [:upvote, votable], { class: ((current_user.voted_up_on? votable) ? 'upvoted' : '') } do %>
+        <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+      <% end %>
     <% end %>
   </div>
   <div class="row number">
@@ -11,8 +16,14 @@
     </span>
   </div>
   <div class="row downvote">
-    <%= button_to [:downvote, votable], { class: ((current_user.voted_down_on? votable) ? 'downvoted' : '') } do %>
-      <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+    <% if current_user === nil %>
+      <button disabled=true>
+        <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+      </button>
+    <% else %>
+      <%= button_to [:downvote, votable], { class: ((current_user.voted_down_on? votable) ? 'downvoted' : '') } do %>
+        <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+      <% end %>
     <% end %>
   </div>
 </div>
