@@ -27,6 +27,9 @@ gem 'jbuilder', '~> 2.7'
 # Centralization of locale data collection for Ruby on Rails.
 gem 'rails-i18n'
 
+gem 'bootstrap'
+gem 'jquery-rails'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

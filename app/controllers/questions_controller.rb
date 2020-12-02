@@ -69,7 +69,8 @@ class QuestionsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_question
+    def set_question      
+    
       @question = Question.find(params[:id])
     end
 
@@ -77,4 +78,6 @@ class QuestionsController < ApplicationController
     def question_params
       params.require(:question).permit(:title, :body)
     end
+
+    
 end
