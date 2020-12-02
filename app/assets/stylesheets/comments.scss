@@ -1,3 +1,48 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import "/variables";
+
+ul.comments {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 0;
+
+  li {
+    border-bottom: 1px solid $secondary-color;
+    padding: 6px;
+    padding-top: 0;
+  }
+
+  // li:not(:last-child) {
+  // }
+
+  li:not(:first-child) {
+    padding-top: 6px;
+  }
+}
+
+input.new-comment {
+  height: 1.5em;
+  width: 100%;
+  padding-left: 6px;
+  margin-top: 5px;
+
+  border: none;
+}
+
+// ::-moz-placeholder {
+//   /* Mozilla Firefox 19+ */
+//   line-height: 2em;
+// }
+
+// ::-webkit-input-placeholder {
+//   /* Webkit */
+//   line-height: 2em;
+// }
+
+// :-ms-input-placeholder {
+//   /* IE */
+//   line-height: 2em;
+// }

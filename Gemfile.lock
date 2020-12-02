@@ -56,9 +56,14 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
+    acts_as_votable (0.12.1)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+<<<<<<< HEAD
     autoprefixer-rails (10.0.3.0)
+=======
+    autoprefixer-rails (10.0.2.0)
+>>>>>>> cb0ad2a4aab3b11d60e855ec346ee59861055cea
       execjs
     bcrypt (3.1.16)
     better_errors (2.9.1)
@@ -68,10 +73,20 @@ GEM
     bindex (0.8.1)
     bootsnap (1.5.1)
       msgpack (~> 1.0)
+<<<<<<< HEAD
     bootstrap (4.5.3)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
+=======
+    bootstrap (5.0.0.alpha3)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 1.14.3, < 2)
+      sassc-rails (>= 2.0.0)
+    bootstrap-glyphicons (0.0.1)
+      railties (>= 3.0)
+      sass (>= 3.2)
+>>>>>>> cb0ad2a4aab3b11d60e855ec346ee59861055cea
     builder (3.2.4)
     byebug (11.1.3)
     capybara (3.33.0)
@@ -127,6 +142,10 @@ GEM
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+<<<<<<< HEAD
+=======
+    pg (1.2.3)
+>>>>>>> cb0ad2a4aab3b11d60e855ec346ee59861055cea
     popper_js (1.16.0)
     public_suffix (4.0.6)
     puma (4.3.6)
@@ -174,6 +193,11 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rubyzip (2.3.0)
+    sass (3.7.4)
+      sass-listen (~> 4.0.0)
+    sass-listen (4.0.0)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -198,7 +222,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -233,9 +256,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_votable
   better_errors
   bootsnap (>= 1.4.2)
+<<<<<<< HEAD
   bootstrap
+=======
+  bootstrap (~> 5.0.0.alpha3)
+  bootstrap-glyphicons
+>>>>>>> cb0ad2a4aab3b11d60e855ec346ee59861055cea
   byebug
   capybara (>= 2.15)
   devise
@@ -243,6 +272,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   jquery-rails
   listen (~> 3.2)
+  pg
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
   rails-i18n
@@ -250,7 +280,6 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3 (~> 1.4)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)

@@ -1,4 +1,11 @@
-<h1>Comentários</h1>
-<% commentable.comments.each do |comment| %>
-  <div><%= comment.body %> | <%= comment.user.email %></div>
-<% end %>
+<ul class="comments">
+  <% commentable.comments.reverse.each do |comment| %>
+    <li>
+      <%= comment.body %>
+      -
+      <span class="text-primary"><%= comment.user.email %></span>
+    </li>
+  <% end %>
+</ul>
+<%# create new comment on this question %>
+<%= render 'comments/form', commentable: commentable %>

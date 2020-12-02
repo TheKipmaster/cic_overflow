@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-  before_action :set_answer, only: [:show, :edit, :update, :destroy]
+  before_action :set_answer, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, :except => [:index, :show]
   before_action :set_question, only: [:create]
 
@@ -12,6 +12,28 @@ class AnswersController < ApplicationController
   # GET /answers/1
   # GET /answers/1.json
   def show
+  end
+
+  def upvote
+    session[:return_to] ||= request.referer
+
+    if current_user.voted_as_when_voted_for @answer # if user has liked this answer, unlike it
+      @answer.unliked_by current_user
+    else
+      @answer.liked_by current_user # otherwise, like it
+    end
+    redirect_to session.delete(:return_to)
+  end
+
+  def downvote
+    session[:return_to] ||= request.referer
+
+    unless (current_user.voted_as_when_voted_for @answer) === false # if user has disliked this answer, undislike it
+      @answer.disliked_by current_user
+    else # if user has not liked nor disliked, dislike it
+      @answer.undisliked_by current_user
+    end
+    redirect_to session.delete(:return_to)
   end
 
   # GET /answers/new

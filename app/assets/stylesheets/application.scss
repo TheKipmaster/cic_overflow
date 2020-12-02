@@ -1,1 +1,86 @@
+<<<<<<< HEAD
 @import 'bootstrap/dist/css/bootstrap';
+=======
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+// Imports tree and builds app styles.
+@import "/\*";
+
+@import 'bootstrap/glyphicons';
+
+body {
+  background-color: $background-color;
+  color: $main-color;
+}
+
+textarea {
+  background-color: $background-color;
+  color: $main-color;
+  resize: none;
+}
+
+input {
+  background-color: $background-color;
+  color: $main-color;
+}
+
+.score {
+  text-align: center;
+  font-size: 3em;
+  line-height: 1em;
+
+  .number {
+    margin: 15px 0;
+  }
+
+  button {
+    background-color: $background-color;
+    border: none;
+    color: $main-color;
+
+    &.upvoted {
+      color: #ff581a;
+    }
+
+    &.downvoted {
+      color: #69adff;
+    }
+  }
+
+  .row {
+    color: $main-color;
+    height: 1em;
+  }
+}
+
+// .upvote, .downvote {
+//   background-color: white;
+//   width: 50px;
+//   height: 50px;
+//   text-align: center;
+// }
+
+.downvote {
+  transform: rotateX(180deg)
+}
+
+// .glyphicon.glyphicon-arrow-up,
+// .glyphicon.glyphicon-arrow-down {
+//   font-size: 50px;
+// }
+>>>>>>> cb0ad2a4aab3b11d60e855ec346ee59861055cea

@@ -1,10 +1,11 @@
-<%= form_for [question, Answer.new] do |f| %>
+<h4>Sua Resposta</h4>
+
+<%= form_for [question, Answer.new], html: { autocomplete: "off" } do |f| %>
   <div class="field">
-    <%= f.label :responder %>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, class: "new-answer" %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Responder" %>
   </div>
 <% end %>

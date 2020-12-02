@@ -1,12 +1,31 @@
-<h1>Respostas</h1>
-<% question.answers.each do |answer| %>
-  <div><%= answer.body %> | <%= answer.user.email %></div>
+<h4 class="divide"><%= question.answers.length %> Resposta(s)</h4>
 
-  <br>
+<% question.answers.order(:cached_votes_score).reverse.each do |answer| %>
+  <div class="container-fluid no-gutters answer">
+    <div class="row">
+      <div class="col-1 answer-score">
+        <%= render 'layouts/score', votable: answer %>
 
-  <%= render 'comments/comments', commentable: answer %>
+        <% if false %>
+          <p>
+            <strong>Answered:</strong>
+            <%= answer.answered %>
+          </p>
+        <% end %>
 
-  <br>
-
-  <%= render 'comments/form', commentable: answer %>
+      </div>
+      <div class="col-7 answer-body">
+        <%= simple_format(answer.body) %>
+      </div>
+      <div class="col-4 answer-comments">
+        <%# comments on this answer %>
+        <%= render 'comments/comments', commentable: answer %>
+      </div>
+    </div>
+  </div>
 <% end %>
+
+<br>
+
+<%# create new answer to this question %>
+<%= render 'answers/form', question: @question %>
