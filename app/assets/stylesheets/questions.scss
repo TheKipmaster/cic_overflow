@@ -10,8 +10,30 @@
 
 .question {
   font-size: 15px;
+  p {
+    font-size: 15px;
+  }
   padding: 0;
   margin-bottom: 8px;
   // border-bottom: 1px solid $secondary-color;
   min-height: 12em;
+}
+
+.question-form {
+  label {
+    font-size: 2em;
+    padding: 10px 0;
+  }
+  .title {
+    input {
+      width: 100%;
+    }
+  }
+
+  .body {
+    textarea {
+      width: 100%;
+      height: 20em;
+    }
+  }
 }

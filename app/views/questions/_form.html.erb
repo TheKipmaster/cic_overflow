@@ -1,4 +1,4 @@
-<%= form_with(model: question, local: true) do |form| %>
+<%= form_with(model: question, local: true, html: { class: "question-form" }) do |form| %>
   <% if question.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
@@ -11,13 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
+  <div class="field title">
+    <%= form.label :título %>
     <%= form.text_field :title %>
   </div>
 
-  <div class="field">
-    <%= form.label :body %>
+  <div class="field body">
+    <%= form.label :corpo %>
     <%= form.text_area :body %>
   </div>
 
@@ -34,6 +34,8 @@
   </div>
 
   <% end %>
+
+  <%= link_to "Como fazer uma boa pergunta (stack overflow)", "https://stackoverflow.com/help/how-to-ask"%>
 
   <div class="actions">
     <%= form.submit %>

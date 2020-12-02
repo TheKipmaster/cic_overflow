@@ -6,6 +6,9 @@
 
 .answer {
   font-size: 15px;
+  p {
+    font-size: 15px;
+  }
   padding: 0;
   margin-bottom: 8px;
   border-bottom: 1px solid $secondary-color;
