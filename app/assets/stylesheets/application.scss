@@ -23,6 +23,10 @@
 body {
   background-color: $background-color;
   color: $main-color;
+
+  nav {
+    border-bottom: 1px solid $secondary-color;
+  }
 }
 
 textarea {
