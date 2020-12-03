@@ -1,34 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Questions</h1>
+<h1>Perguntas</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Score</th>
-      <th>Answered</th>
-      <th>User E-mail</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<br>
 
-  <tbody>
-    <% @highest.each do |question| %>
-      <tr>
-        <td><%= question.title %></td>
-        <td><%= question.body %></td>
-        <td><%= question.score %></td>
-        <td><%= question.answered %></td>
-        <td><%= question.user.email %></td>
-        <td><%= link_to 'Show', question %></td>
-        <td><%= link_to 'Edit', edit_question_path(question) %></td>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @highest.each do |question| %>
+  <div class="container-fluid no-gutters question-short">
+    <div class="row">
+      <div class="col-1 question-engagement">
+        <div>
+          <h3><%= question.cached_votes_score %></h3>
+          Score
+        </div>
+        <% if false %>
+          <p>
+            <strong>Answered:</strong>
+            <%= question.answered %>
+          </p>
+        <% end %>
+      </div>
+      <div class="col-6 question-body">
+        <h4><%= link_to question.title, question %></h4>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <br>
 

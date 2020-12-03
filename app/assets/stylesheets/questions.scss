@@ -8,8 +8,24 @@
   border-bottom: 2px solid $secondary-color;
 }
 
-.question {
+.question-short {
+  padding: 10px 0;
+  border-bottom: 1px solid $secondary-color;
+  border-top: 1px solid $secondary-color;
+
+  .question-engagement {
+    text-align: center;
+    font-size: 0.8em;
+  }
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.question-long {
   font-size: 15px;
+
   p {
     font-size: 15px;
   }
