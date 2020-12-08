@@ -47,7 +47,6 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(question_params)
-    @question.score = 0
     @question.answered = false
     @question.user_id = current_user.id
 

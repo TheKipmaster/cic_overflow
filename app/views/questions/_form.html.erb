@@ -13,25 +13,25 @@
 
   <div class="field title">
     <%= form.label :título %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, required: true %>
   </div>
 
   <div class="field body">
     <%= form.label :corpo %>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, required: true %>
   </div>
 
   <% if false %>
 
-  <div class="field">
-    <%= form.label :score %>
-    <%= form.number_field :score %>
-  </div>
+    <div class="field">
+      <%= form.label :score %>
+      <%= form.number_field :score %>
+    </div>
 
-  <div class="field">
-    <%= form.label :answered %>
-    <%= form.check_box :answered %>
-  </div>
+    <div class="field">
+      <%= form.label :answered %>
+      <%= form.check_box :answered %>
+    </div>
 
   <% end %>
 

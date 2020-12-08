@@ -1,5 +1,5 @@
 <%= form_for [commentable, Comment.new], html: { autocomplete: "off" } do |f| %>
   <div class="field">
-    <%= f.text_field :body, placeholder: "Comentar", class: "new-comment" %>
+    <%= f.text_field :body, placeholder: "Comentar", class: "new-comment", required: true %>
   </div>
 <% end %>

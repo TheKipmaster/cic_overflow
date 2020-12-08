@@ -2,7 +2,7 @@
 
 <%= form_for [question, Answer.new], html: { autocomplete: "off" } do |f| %>
   <div class="field">
-    <%= f.text_area :body, class: "new-answer" %>
+    <%= f.text_area :body, class: "new-answer", required: true %>
   </div>
 
   <div class="actions">
