@@ -1,0 +1,40 @@
+<div class="container-fluid no-gutters answer">
+  <div class="row">
+    <div class="col-1 answer-score">
+      <div class="container score">
+
+        <%= render 'layouts/score', votable: answer %>
+
+        <% if current_user === @question.user %>
+          <%= button_to [:choose, @question, answer], { class: ((answer.chosen) ? 'answer-chosen' : 'answer-choose') } do %>
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+          <% end %>
+        <% elsif answer.chosen %>
+          <div class="container answer-chosen">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+    <div class="col-7 answer-body">
+      <div class="row">
+        <%= simple_format(answer.body) %>
+      </div>
+      <div class="row justify-content-end">
+        <div class="col-5 answer-author">
+          respondido em <%= answer.created_at %>
+          <br>
+          <span class="text-primary">
+            <%= answer.user.email %>
+          </span>
+          <%= "- #{answer.user.major} (#{answer.user.year}.#{answer.user.semester})" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 answer-comments">
+      <%# comments on this answer %>
+      <%= render 'comments/comments', commentable: answer %>
+    </div>
+  </div>
+</div>

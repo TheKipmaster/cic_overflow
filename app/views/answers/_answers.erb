@@ -3,47 +3,14 @@
   <%= question.answers.length === 1 ? "Resposta" : "Respostas" %> <%# pluralização correta %>
 </h4>
 
-<% question.answers.order(:cached_votes_score).reverse.each do |a| %>
-  <div class="container-fluid no-gutters answer">
-    <div class="row">
-      <div class="col-1 answer-score">
-        <div class="container score">
+<% if question.chosen_answer != nil %>
+  <%= render 'answers/answer_details', answer: question.chosen_answer %>
+<% end %>
 
-          <%= render 'layouts/score', votable: a %>
-
-          <% if current_user === question.user %>
-            <%= button_to [:choose, question, a], { class: ((a.chosen) ? 'answer-chosen' : 'answer-choose') } do %>
-              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-            <% end %>
-          <% elsif a.chosen %>
-            <div class="container answer-chosen">
-              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-            </div>
-          <% end %>
-
-        </div>
-      </div>
-      <div class="col-7 answer-body">
-        <div class="row">
-          <%= simple_format(a.body) %>
-        </div>
-        <div class="row justify-content-end">
-          <div class="col-5 answer-author">
-            respondido em <%= a.created_at %>
-            <br>
-            <span class="text-primary">
-              <%= a.user.email %>
-            </span>
-            <%= "- #{a.user.major} (#{a.user.year}.#{a.user.semester})" %>
-          </div>
-        </div>
-      </div>
-      <div class="col-4 answer-comments">
-        <%# comments on this answer %>
-        <%= render 'comments/comments', commentable: a %>
-      </div>
-    </div>
-  </div>
+<% question.answers.order(:cached_votes_score).reverse.each do |answer| %>
+  <% if !answer.chosen %>
+    <%= render 'answers/answer_details', answer: answer %>
+  <% end %>
 <% end %>
 
 <br>
