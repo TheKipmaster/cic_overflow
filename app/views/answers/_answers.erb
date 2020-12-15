@@ -1,4 +1,7 @@
-<h4 class="divide"><%= question.answers.length %> Resposta(s)</h4>
+<h4 class="divide">
+  <%= question.answers.length %>
+  <%= question.answers.length === 1 ? "Resposta" : "Respostas" %> <%# pluralização correta %>
+</h4>
 
 <% question.answers.order(:cached_votes_score).reverse.each do |answer| %>
   <div class="container-fluid no-gutters answer">
@@ -19,7 +22,7 @@
           <%= simple_format(answer.body) %>
         </div>
         <div class="row justify-content-end">
-          <div class="col-5 author">
+          <div class="col-5 answer-author">
             perguntado em <%= @question.created_at %>
             <br>
             <span class="text-primary">
