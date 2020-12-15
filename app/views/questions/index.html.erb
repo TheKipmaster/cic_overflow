@@ -4,23 +4,36 @@
 
 <br>
 
-<% @highest.each do |question| %>
+<% @highest.each do |q| %>
   <div class="container-fluid no-gutters question-short">
     <div class="row">
       <div class="col-1 question-engagement">
-        <div>
-          <h3><%= question.cached_votes_score %></h3>
-          Score
-        </div>
+          <h3><%= q.cached_votes_score %></h3>
+          <%= q.cached_votes_score === 1 ? "Voto" : "Votos" %> <%# pluralização correta %>
         <% if false %>
           <p>
             <strong>Answered:</strong>
-            <%= question.answered %>
+            <%= q.answered %>
           </p>
         <% end %>
       </div>
+
+      <div class="col-1 question-engagement">
+        <h3><%= q.answers.size %></h3>
+        <%= q.answers.size === 1 ? "Resposta" : "Respostas" %> <%# pluralização correta %>
+      </div>
+
       <div class="col-6 question-body">
-        <h4><%= link_to question.title, question %></h4>
+        <h4><%= link_to q.title, q %></h4>
+      </div>
+
+      <div class="col-4 question-author">
+        perguntado em <%= q.created_at %>
+          <br>
+          <span class="text-primary">
+            <%= q.user.email %>
+          </span>
+          <%= "- #{q.user.major} (#{q.user.year}.#{q.user.semester})" %>
       </div>
     </div>
   </div>
