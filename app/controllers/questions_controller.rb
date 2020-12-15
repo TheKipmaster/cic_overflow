@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :set_question, only: [:show, :edit, :update, :destroy, :upvote, :downvote, :choose]
   before_action :authenticate_user!, :except => [:index, :show]
 
   # GET /questions
@@ -14,6 +14,22 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
+  end
+
+  def choose
+    answer = Answer.find_by(id: params[:answer_id])
+
+    if answer.chosen
+      answer.chosen = false
+    elsif @question.chosen_answer === nil
+      answer.chosen = true
+    else
+      @question.chosen_answer.chosen = false
+      answer.chosen = true
+      @question.chosen_answer.save
+    end
+    answer.save # necessary?
+    redirect_to @question
   end
 
   def upvote
@@ -93,6 +109,6 @@ class QuestionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def question_params
-      params.require(:question).permit(:title, :body)
+      params.require(:question).permit(:title, :body, answers_attributes: [:id])
     end
 end

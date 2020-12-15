@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :comments, module: :answers
   end
 
+  post '/questions/:id/answers/:answer_id/choose', to: 'questions#choose', as: 'choose_question_answer'
+
   post '/questions/:id/upvote', to: 'questions#upvote', as: 'upvote_question'
   post '/questions/:id/downvote', to: 'questions#downvote', as: 'downvote_question'
 

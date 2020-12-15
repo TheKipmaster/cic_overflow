@@ -3,38 +3,44 @@
   <%= question.answers.length === 1 ? "Resposta" : "Respostas" %> <%# pluralização correta %>
 </h4>
 
-<% question.answers.order(:cached_votes_score).reverse.each do |answer| %>
+<% question.answers.order(:cached_votes_score).reverse.each do |a| %>
   <div class="container-fluid no-gutters answer">
     <div class="row">
       <div class="col-1 answer-score">
-        <%= render 'layouts/score', votable: answer %>
+        <div class="container score">
 
-        <% if false %>
-          <p>
-            <strong>Answered:</strong>
-            <%= answer.answered %>
-          </p>
-        <% end %>
+          <%= render 'layouts/score', votable: a %>
 
+          <% if current_user === question.user %>
+            <%= button_to [:choose, question, a], { class: ((a.chosen) ? 'answer-chosen' : 'answer-choose') } do %>
+              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            <% end %>
+          <% elsif a.chosen %>
+            <div class="container answer-chosen">
+              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            </div>
+          <% end %>
+
+        </div>
       </div>
       <div class="col-7 answer-body">
         <div class="row">
-          <%= simple_format(answer.body) %>
+          <%= simple_format(a.body) %>
         </div>
         <div class="row justify-content-end">
           <div class="col-5 answer-author">
-            perguntado em <%= @question.created_at %>
+            respondido em <%= a.created_at %>
             <br>
             <span class="text-primary">
-              <%= @question.user.email %>
+              <%= a.user.email %>
             </span>
-            <%= "- #{@question.user.major} (#{@question.user.year}.#{@question.user.semester})" %>
+            <%= "- #{a.user.major} (#{a.user.year}.#{a.user.semester})" %>
           </div>
         </div>
       </div>
       <div class="col-4 answer-comments">
         <%# comments on this answer %>
-        <%= render 'comments/comments', commentable: answer %>
+        <%= render 'comments/comments', commentable: a %>
       </div>
     </div>
   </div>

@@ -7,13 +7,9 @@
 <div class="container-fluid no-gutters question-long">
   <div class="row">
     <div class="col-1">
-      <%= render 'layouts/score', votable: @question %>
-        <% if @question.answered %>
-          <p>
-            <strong>Answered:</strong>
-            <%= @question.answered %>
-          </p>
-        <% end %>
+      <div class="container score">
+        <%= render 'layouts/score', votable: @question %>
+      </div>
     </div>
     <div class="col-7 question-body">
       <div class="row">
