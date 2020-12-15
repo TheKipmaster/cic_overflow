@@ -6,13 +6,18 @@
 
 .answer {
   font-size: 15px;
-  p {
-    font-size: 15px;
-  }
   padding: 0;
   margin-bottom: 8px;
   border-bottom: 1px solid $secondary-color;
   min-height: 12em;
+
+  .author {
+    margin: 10px 0;
+  }
+
+  p {
+    font-size: 15px;
+  }
 }
 
 .new-answer {

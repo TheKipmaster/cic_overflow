@@ -25,14 +25,19 @@
 
 .question-long {
   font-size: 15px;
-
-  p {
-    font-size: 15px;
-  }
   padding: 0;
   margin-bottom: 8px;
   // border-bottom: 1px solid $secondary-color;
   min-height: 12em;
+
+  .author {
+    padding: 10px 10px;
+    background-color: #323b42;
+  }
+
+  p {
+    font-size: 15px;
+  }
 }
 
 .question-form {

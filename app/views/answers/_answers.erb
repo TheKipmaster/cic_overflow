@@ -15,7 +15,19 @@
 
       </div>
       <div class="col-7 answer-body">
-        <%= simple_format(answer.body) %>
+        <div class="row">
+          <%= simple_format(answer.body) %>
+        </div>
+        <div class="row justify-content-end">
+          <div class="col-5 author">
+            perguntado em <%= @question.created_at %>
+            <br>
+            <span class="text-primary">
+              <%= @question.user.email %>
+            </span>
+            <%= "- #{@question.user.major} (#{@question.user.year}.#{@question.user.semester})" %>
+          </div>
+        </div>
       </div>
       <div class="col-4 answer-comments">
         <%# comments on this answer %>
