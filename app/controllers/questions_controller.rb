@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
   def index
     # @questions = Question.all
     # @latest = @questions.reverse
-    @highest = Question.order(:cached_votes_score).reverse
+    @pagy, @highest = pagy(Question.order(cached_votes_score: :desc))
     # @open
   end
 

@@ -14,6 +14,8 @@ gem 'acts_as_votable'
 # gem 'sqlite3', '~> 1.4'
 # PostgreSQL database for heroku
 gem 'pg'
+# Pagy for pagination
+gem 'pagy', '~> 3.5'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
