@@ -21,23 +21,23 @@
 @import 'bootstrap/glyphicons';
 
 body {
-  background-color: $background-color;
-  color: $main-color;
+  background-color: $background-grey;
+  color: $font-grey;
 
   nav {
-    border-bottom: 1px solid $secondary-color;
+    border-bottom: 1px solid $border-brown;
   }
 }
 
 textarea {
-  background-color: $background-color;
-  color: $main-color;
+  background-color: $background-grey;
+  color: $font-grey;
   resize: none;
 }
 
 input {
-  background-color: $background-color;
-  color: $main-color;
+  background-color: $background-grey;
+  color: $font-grey;
 }
 
 .score {
@@ -50,21 +50,21 @@ input {
   }
 
   button {
-    background-color: $background-color;
+    background-color: $background-grey;
     border: none;
-    color: $main-color;
+    color: $font-grey;
 
     &.upvoted {
-      color: #ff581a;
+      color: $upvote-orange;
     }
 
     &.downvoted {
-      color: #69adff;
+      color: $downvote-blue;
     }
   }
 
   .row {
-    color: $main-color;
+    color: $font-grey;
     height: 1em;
   }
 }

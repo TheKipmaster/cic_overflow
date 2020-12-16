@@ -10,15 +10,9 @@
       <div class="col-1 question-engagement">
           <h3><%= q.cached_votes_score %></h3>
           <%= q.cached_votes_score === 1 ? "Voto" : "Votos" %> <%# pluralização correta %>
-        <% if false %>
-          <p>
-            <strong>Answered:</strong>
-            <%= q.answered %>
-          </p>
-        <% end %>
       </div>
 
-      <div class="col-1 question-engagement">
+      <div class="col-1 question-engagement <%= (q.chosen_answer === nil) ? "" : "answered" %>">
         <h3><%= q.answers.size %></h3>
         <%= q.answers.size === 1 ? "Resposta" : "Respostas" %> <%# pluralização correta %>
       </div>

@@ -5,17 +5,21 @@
 @import "/variables";
 
 .header {
-  border-bottom: 2px solid $secondary-color;
+  border-bottom: 2px solid $border-brown;
 }
 
 .question-short {
   padding: 10px 0;
-  border-bottom: 1px solid $secondary-color;
-  border-top: 1px solid $secondary-color;
+  border-bottom: 1px solid $border-brown;
+  border-top: 1px solid $border-brown;
 
   .question-engagement {
     text-align: center;
     font-size: 0.8em;
+
+    &.answered {
+      color: $answered-green;
+    }
   }
 
   h2 {
@@ -27,12 +31,12 @@
   font-size: 15px;
   padding: 0;
   margin-bottom: 8px;
-  // border-bottom: 1px solid $secondary-color;
+  // border-bottom: 1px solid $border-brown;
   min-height: 12em;
 
   .question-author {
     padding: 10px 10px;
-    background-color: #323b42;
+    background-color: $author-blue;
   }
 
   p {
