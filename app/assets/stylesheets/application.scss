@@ -40,6 +40,11 @@ input {
   color: $font-grey;
 }
 
+nav.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
 .score {
   text-align: center;
   font-size: 3em;
