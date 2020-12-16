@@ -7,7 +7,9 @@ class QuestionsController < ApplicationController
   def index
     # @questions = Question.all
     # @latest = @questions.reverse
-    @pagy, @highest = pagy(Question.order(cached_votes_score: :desc))
+    @q = Question.ransack(params[:q])
+    @questions = @q.result(distinct: true)
+    @pagy, @highest = pagy(@questions.order(cached_votes_score: :desc))
     # @open
   end
 
